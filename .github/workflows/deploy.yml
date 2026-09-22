@@ -1,19 +1,20 @@
 name: Continuous Integration
+
 on:
-push:
-  branches:["main","master"]
-pull request: 
-  branches:["main"]
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main"]
 
-
-jobs: 
+jobs:
   validacao-estatica:
     runs-on: ubuntu-latest
-    steps:
-      -name: Checkout do código
-      uses: actions/chekout@v4
 
-      -name: Verificar arquivos essenciais
-      run: |
-      test -f index.html && echo "HTML encontrado!"
-      test -f style.css && echo "CSS encontrado!"
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Verificar arquivos essenciais
+        run: |
+          test -f index.html && echo "HTML encontrado!"
+          test -f style.css && echo "CSS encontrado!"
