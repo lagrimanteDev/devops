@@ -1,0 +1,11 @@
+name: Continuous Integration
+on:
+push:
+  branches:["main","master"]
+pull request: 
+  branches:["main"]
+
+
+jobs: 
+  validacao-estatica:
+    runs-on: ubuntu-latest
