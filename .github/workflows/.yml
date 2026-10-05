@@ -19,19 +19,22 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Explorando o Runner
-        run: lsb_release -a && free -h
-
-      - name: Validar sintaxe do HTML
-        run: npx --yes htmlhint index.html
-
-      - name: Checar arquivos estaticos
+      - name: Auditoria antes do checkout
         run: |
           ls -R
           echo "Todos os arquivos foram carregados no Runner!"
+
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+
+      - name: Auditoria apos o checkout
+        run: |
+          ls -R
+          echo "Arquivos HTML encontrados:"
+          find . -name "*.html" | wc -l
+
+      - name: Validar sintaxe do HTML
+        run: npx --yes htmlhint "**/*.html"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
