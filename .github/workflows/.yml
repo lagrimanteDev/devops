@@ -36,3 +36,13 @@ jobs:
 
       - name: Explorando o Runner
         run: lsb_release -a && free -h
+
+      - name: Validar sintaxe do HTML
+        uses: htmlhint/htmlhint-action@v2
+        with:
+          tagert_pattern: 'index.html'
+
+      - name: Checar arquivos estáticos
+        run: |
+          ls -R
+          echo "Todos os arquivos foram carregados no Runner!"
