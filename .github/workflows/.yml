@@ -20,7 +20,18 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
+
+      - name: Explorando o Runner
+        run: lsb_release -a && free -h
+
+      - name: Validar sintaxe do HTML
+        run: npx --yes htmlhint index.html
+
+      - name: Checar arquivos estaticos
+        run: |
+          ls -R
+          echo "Todos os arquivos foram carregados no Runner!"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -33,16 +44,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Explorando o Runner
-        run: lsb_release -a && free -h
-
-      - name: Validar sintaxe do HTML
-        uses: htmlhint/htmlhint-action@v2
-        with:
-          tagert_pattern: 'index.html'
-
-      - name: Checar arquivos estáticos
-        run: |
-          ls -R
-          echo "Todos os arquivos foram carregados no Runner!"
