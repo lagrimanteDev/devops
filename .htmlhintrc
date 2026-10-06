@@ -4,5 +4,6 @@
   "attr-value-double-quotes": true,
   "doctype-first": true,
   "title-require": true,
-  "alt-require": true
+  "alt-require": true,
+    "tag-pair": true
 }

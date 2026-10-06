@@ -37,6 +37,10 @@ Erros de `alt`, tags abertas ou ausencia de `title` fazem o HTMLHint interromper
 o job e apontar arquivo, linha e regra. Corrigir antes do deploy e mais barato e
 previsivel do que descobrir o problema depois que o cliente abriu o site.
 
+Na Parte A, os testes produziram estas regras: sem `<title>`, `title-require`;
+sem `</section>`, `tag-pair`; e sem `alt` na imagem, `alt-require`. Depois de
+registrar cada falha, os tres problemas foram corrigidos antes da publicacao.
+
 ### 5. Versoes das Actions
 
 Uma referencia inexistente, como `actions/checkout@v99`, faz o job falhar antes
