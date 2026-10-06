@@ -16,6 +16,9 @@ jobs:
       - name: Checkout do codigo
         uses: actions/checkout@v4
 
+      - name: Validar sintaxe do HTML
+        run: npx --yes htmlhint index.html
+
       - name: Checar arquivos estaticos
         run: |
           ls -R
