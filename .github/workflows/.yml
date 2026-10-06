@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout do codigo
-        uses: actions/checkout@v99
+        uses: actions/checkout@v4
 
       - name: Validar sintaxe do HTML
         run: npx --yes htmlhint index.html
